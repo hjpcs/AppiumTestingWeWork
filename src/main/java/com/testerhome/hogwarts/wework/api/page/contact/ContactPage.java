@@ -23,6 +23,12 @@ public class ContactPage extends BasePage {
         By departmentName= MobileBy.AndroidUIAutomator(
                 "new UiScrollable(new UiSelector().scrollable(true).instance(0))" +
                         ".scrollIntoView(new UiSelector().text(\""+ name + "\").instance(0));");
+        find(departmentName);
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         click(departmentName);
         return new DepartmentPage();
     }

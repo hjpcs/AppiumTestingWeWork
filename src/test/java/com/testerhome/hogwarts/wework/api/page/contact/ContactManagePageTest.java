@@ -18,14 +18,17 @@ class ContactManagePageTest extends AppTestCase {
 
     @BeforeAll
     static void beforeAllContactManagePageTest() {
-/*        List<String> cleanData=new ArrayList<>();
+        List<String> cleanData=new ArrayList<>();
         cleanData.add("demo6");
 
         //todo: 使用更好的办法清理数据   接口or数据库
         //todo: 加个判断
         try {
             for (String name : cleanData) {
-                MainPage.getInstance().gotoContact().gotoDepartment(name).deleteAll().gotoManage().delete();
+                MainPage.getInstance()
+                        .gotoContact()
+                        .gotoDepartment(name).deleteAll()
+                        .delete();
 
             }
         }catch (Exception e){
@@ -34,7 +37,7 @@ class ContactManagePageTest extends AppTestCase {
         }
         finally {
 
-        }*/
+        }
     }
 
     @BeforeEach
@@ -64,8 +67,8 @@ class ContactManagePageTest extends AppTestCase {
     }
     @Test
     void deleteWithChildren(){
-        String departmentName="demo"+System.currentTimeMillis();
-        String subDepartmentName="demo7"+ System.currentTimeMillis();
+        String departmentName="demo6";
+        String subDepartmentName="demo7";
         Boolean result=MainPage.getInstance()
                 .gotoContact()
                 .gotoManage().add(departmentName).back()

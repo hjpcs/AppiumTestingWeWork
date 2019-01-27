@@ -7,7 +7,7 @@ import org.openqa.selenium.WebElement;
 import java.util.List;
 
 public class BasePage {
-    WebElement find(By by){
+    public WebElement find(By by){
         //todo: 弹框处理
         return Driver.getInstance().find(by);
     }

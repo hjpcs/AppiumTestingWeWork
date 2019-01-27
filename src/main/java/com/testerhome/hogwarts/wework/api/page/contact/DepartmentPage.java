@@ -23,6 +23,9 @@ public class DepartmentPage extends BasePage {
         By departmentName= MobileBy.AndroidUIAutomator(
                 "new UiScrollable(new UiSelector().scrollable(true).instance(0))" +
                         ".scrollIntoView(new UiSelector().text(\""+ name + "\").instance(0));");
+
+        find(departmentName);
+        find(departmentName);
         click(departmentName);
         return new DepartmentPage();
     }
@@ -35,7 +38,7 @@ public class DepartmentPage extends BasePage {
         return array;
     }
 
-    public DepartmentPage deleteAll(){
+    public ContactManagePage deleteAll(){
         while(findElements(byText("部门无成员")).size()==0){
             if(getSubDepartmentNames().size()==0){
                 break;
@@ -44,6 +47,6 @@ public class DepartmentPage extends BasePage {
                 gotoDepartment(sub).gotoManage().delete();
             }
         }
-        return this;
+        return new ContactManagePage();
     }
 }
