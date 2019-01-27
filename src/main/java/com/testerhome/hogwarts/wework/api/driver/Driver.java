@@ -30,6 +30,7 @@ public class Driver {
         desiredCapabilities.setCapability("noReset", "true");
         desiredCapabilities.setCapability("unicodeKeyboard", true);
         desiredCapabilities.setCapability("resetKeyboard", true);
+        desiredCapabilities.setCapability("printPageSourceOnFindFailure", true);
 
         try {
             appiumDriver=new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), desiredCapabilities);

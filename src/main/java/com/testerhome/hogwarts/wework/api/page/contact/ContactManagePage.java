@@ -6,6 +6,9 @@ import org.openqa.selenium.By;
 public class ContactManagePage extends BasePage {
     By 添加子部门=byText("添加子部门");
     By 添加成员=byText("添加成员");
+    By 更多管理=byText("更多管理");
+    By 删除部门=byText("删除部门");
+
     By 关闭=By.id("e3j");
     By 编辑框=By.id("b9k");
 
@@ -19,6 +22,17 @@ public class ContactManagePage extends BasePage {
     public ContactPage back(){
         click(关闭);
         return new ContactPage();
+    }
+    public ContactManagePage delete(){
+        click(更多管理);
+        click(删除部门);
+        click(byText("确定"));
+        return this;
+    }
+
+    public Boolean allowDelete(){
+        click(更多管理);
+        return findElements(删除部门).size()>0;
     }
 
 }
