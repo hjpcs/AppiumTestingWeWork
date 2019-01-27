@@ -1,0 +1,9 @@
+elements:
+  a: xxxx
+  b: ddd
+actions:
+  gotoA:
+    - {click: a}
+    - {click: b}
+    - {click: c}
+    - {sendKeys, "dddd"}

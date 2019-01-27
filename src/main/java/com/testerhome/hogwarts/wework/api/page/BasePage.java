@@ -9,7 +9,14 @@ import java.util.List;
 public class BasePage {
     public WebElement find(By by){
         //todo: 弹框处理
-        return Driver.getInstance().find(by);
+        WebElement element=null;
+        try{
+            element=Driver.getInstance().find(by);
+        }catch(Exception e){
+            //todo: getPageSource + xpath
+            //弹框xpath列表
+        }
+        return element;
     }
 
     public void click(By by){
@@ -26,7 +33,7 @@ public class BasePage {
     }
 
     public By byText(String text){
-        //todo: 特殊字符处理
+        //fix: 特殊字符处理
         return By.xpath("//*[@text='"+text + "']");
     }
 

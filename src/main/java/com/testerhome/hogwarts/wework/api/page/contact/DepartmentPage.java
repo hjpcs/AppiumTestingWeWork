@@ -25,8 +25,7 @@ public class DepartmentPage extends BasePage {
                         ".scrollIntoView(new UiSelector().text(\""+ name + "\").instance(0));");
 
         find(departmentName);
-        find(departmentName);
-        click(departmentName);
+        click(byText(name));
         return new DepartmentPage();
     }
 

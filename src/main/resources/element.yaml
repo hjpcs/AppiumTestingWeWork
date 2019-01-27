@@ -1,0 +1,11 @@
+contact.manager:
+  common:
+    xpath: dddddd
+  android:
+    id: xxxx
+    xpath: ddd
+    text: ddddd
+  ios:
+    id: ddd
+    xpath: ddd
+

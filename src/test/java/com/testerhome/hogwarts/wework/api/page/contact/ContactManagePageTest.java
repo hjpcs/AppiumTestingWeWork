@@ -18,37 +18,36 @@ class ContactManagePageTest extends AppTestCase {
 
     @BeforeAll
     static void beforeAllContactManagePageTest() {
-        List<String> cleanData=new ArrayList<>();
+        List<String> cleanData = new ArrayList<>();
+        cleanData.add("demo");
+        cleanData.add("demo3");
         cleanData.add("demo6");
 
-        //todo: 使用更好的办法清理数据   接口or数据库
-        //todo: 加个判断
-        try {
-            for (String name : cleanData) {
+        //fixed: 使用更好的办法清理数据   接口or数据库
+        //fix: 加个判断
+
+        for (String name : cleanData) {
+            try {
                 MainPage.getInstance()
                         .gotoContact()
                         .gotoDepartment(name).deleteAll()
                         .delete();
-
+            } catch (Exception e) {
+                System.out.println("not found");
+                e.printStackTrace();
             }
-        }catch (Exception e){
-            System.out.println("not found");
-            e.printStackTrace();
-        }
-        finally {
-
         }
     }
 
     @BeforeEach
-    void beforeEach(){
+    void beforeEach() {
         MainPage.getInstance().gotoMain();
     }
 
     @Test
-    void delete(){
-        //todo: 滑动不稳定需要封装
-        String departmentName="demo";
+    void delete() {
+        //fix: 滑动不稳定需要封装
+        String departmentName = "demo";
         MainPage.getInstance()
                 .gotoContact()
                 .gotoManage().add(departmentName).back()
@@ -58,18 +57,19 @@ class ContactManagePageTest extends AppTestCase {
 
     @Test
     void add() {
-        String departmentName="demo3";
-        String name=MainPage.getInstance()
+        String departmentName = "demo3";
+        String name = MainPage.getInstance()
                 .gotoContact()
                 .gotoManage().add(departmentName).back()
                 .getDepartment(departmentName);
         assertThat(name, equalTo(departmentName));
     }
+
     @Test
-    void deleteWithChildren(){
-        String departmentName="demo6";
-        String subDepartmentName="demo7";
-        Boolean result=MainPage.getInstance()
+    void deleteWithChildren() {
+        String departmentName = "demo6";
+        String subDepartmentName = "demo7";
+        Boolean result = MainPage.getInstance()
                 .gotoContact()
                 .gotoManage().add(departmentName).back()
                 .gotoDepartment(departmentName)

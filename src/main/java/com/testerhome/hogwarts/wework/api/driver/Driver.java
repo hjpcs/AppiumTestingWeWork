@@ -40,7 +40,17 @@ public class Driver {
         }
     }
 
+    public String getPlatform(){
+        return appiumDriver.getCapabilities().getCapability("platformName").toString();
+    }
+
     public WebElement find(By by){
         return appiumDriver.findElement(by);
+    }
+
+    public WebElement findBySwipe(){
+        //todo: 多平台的滑动
+        return  null;
+
     }
 }
