@@ -25,13 +25,14 @@ public class ContactPage extends BasePage {
 
 
 
-
+    //进入管理页面
     public ContactManagePage gotoManage(){
         click(manage);
         //manager.find().click();
         return new ContactManagePage();
     }
 
+    //获得部门文本
     public String getDepartment(String name){
         By departmentName= MobileBy.AndroidUIAutomator(
                 "new UiScrollable(new UiSelector().scrollable(true).instance(0))" +
@@ -39,6 +40,7 @@ public class ContactPage extends BasePage {
         return attribute(departmentName, "text");
     }
 
+    //进入部门页面
     public DepartmentPage gotoDepartment(String name){
         By departmentName= MobileBy.AndroidUIAutomator(
                 "new UiScrollable(new UiSelector().scrollable(true).instance(0))" +
@@ -52,6 +54,7 @@ public class ContactPage extends BasePage {
         click(byText(name));
         return new DepartmentPage();
     }
+
 
     public AddUserPage gotoAddUser(){
         gotoDepartment("添加成员");

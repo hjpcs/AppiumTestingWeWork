@@ -13,6 +13,7 @@ public class MainPage extends BasePage{
         return new ContactPage();
     }
 
+    //单例模式
     static MainPage mainPage;
     public static MainPage getInstance(){
         if(mainPage==null){
@@ -21,7 +22,7 @@ public class MainPage extends BasePage{
         return mainPage;
     }
 
-
+    //返回首页
     public MainPage gotoMain(){
         Driver.getInstance().start();
         return getInstance();

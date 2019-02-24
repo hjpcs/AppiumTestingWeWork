@@ -12,6 +12,7 @@ public class ContactManagePage extends BasePage {
     By 关闭=By.id("e3j");
     By 编辑框=By.id("b9k");
 
+    //添加子部门
     public ContactManagePage add(String name){
         click(添加子部门);
         sendKeys(编辑框, name);
@@ -19,10 +20,13 @@ public class ContactManagePage extends BasePage {
         return  this;
     }
 
+    //回到通讯录页面
     public ContactPage back(){
         click(关闭);
         return new ContactPage();
     }
+
+    //删除某个部门
     public ContactManagePage delete(){
         click(更多管理);
         click(删除部门);
@@ -30,6 +34,7 @@ public class ContactManagePage extends BasePage {
         return this;
     }
 
+    //是否允许删除
     public Boolean allowDelete(){
         click(更多管理);
         return findElements(删除部门).size()>0;

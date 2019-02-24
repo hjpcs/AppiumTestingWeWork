@@ -14,6 +14,7 @@ public class Driver {
 
     public AppiumDriver appiumDriver;
 
+    //单例模式
     static Driver driver;
     public static Driver getInstance(){
         if(driver==null){
